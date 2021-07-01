@@ -22,8 +22,6 @@ Firstly, every frame is preprocessed by cropping the upper and lower part of the
 
 As we see, each frame is associated to a certain steering angle. Unfortunately, there's a huge skew in the ground truth data distribution: as we can see the steering angle distribution is strongly biased towards the zero.
 
-![data_skewness](img/training_data_distribution.png)
-
 ### Data Augmentation
 
 Due to the aforementioned data imbalance, it's easy to imagine that every learning algorithm we would train on the raw data would just learn to predict the steering value 0. Furthermore, we can see that the "test" track is completely different from the "training" one form a visually point of view. Thus, a network naively trained on the first track would *hardly* generalize to the second one. Various forms of data augmentation can help us to deal with these problems.
@@ -42,17 +40,12 @@ Given a certain frame, we have its associated steering direction. However, being
 
 ##### Shifting the bias
 
-Finally, we introduced a parameter called `bias` belonging to range [0, 1] in the `data generator` to be able to mitigate the bias towards zero of the ground truth. Every time an example is loaded from the training set, a *soft* random theshold `r =  np.random.rand()` is computed. Then the example `i` is discarded from the batch if `steering(i) + bias < r`. In this way, we can tweak the ground truth distribution of the data batches loaded. The effect of the bias parameter on the distribution of the ground truth in a batch of 1024 frames is shown below:
-
-<img src="img/bias_parameter.png" alt="augmentation_correct_bias" width="550" height="500" align="middle"/>
+Finally, we introduced a parameter called `bias` belonging to range [0, 1] in the `data generator` to be able to mitigate the bias towards zero of the ground truth. Every time an example is loaded from the training set, a *soft* random theshold `r =  np.random.rand()` is computed. Then the example `i` is discarded from the batch if `steering(i) + bias < r`. In this way, we can tweak the ground truth distribution of the data batches loaded. 
 
 ## Network architecture
 
 Network architecture is borrowed from the aforementioned [NVIDIA paper](https://arxiv.org/pdf/1604.07316v1.pdf) in which they tackle the same problem of steering angle prediction, just in a slightly more unconstrained environment :-)
 
-The architecture is *relatively shallow* and is shown below:
-
-<img src="img/nvidia_architecture.PNG" alt="nvidia_net" width="500" height="500"/>
 
 Input normalization is implemented through a `Lambda` layer, which constitutes the first layer of the model. In this way input is standardized such that lie in the range [-1, 1]: of course this works as long as the frame fed to the network is in range [0, 255].
 
