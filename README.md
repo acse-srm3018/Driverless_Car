@@ -55,7 +55,7 @@ Convolutional layers are followed by 3 fully-connected layers: finally, a last s
 
 ### Preventing overfitting
 
-Despite the strong data augmentation mentioned above, there's still room for the major nightmare of the data scientis, a.k.a. overfitting. In order to prevent the network from falling in love with the training track, dropout layers are aggressively added after each convolutional layer (*drop prob=0.2*) and after each fully-connected layer (*drop prob=0.5*) but the last one.
+Despite the strong data augmentation mentioned above, there's still room for overfitting, to prevent the network from this issue, dropout layers are added after each convolutional layer (*drop prob=0.2*) and after each fully-connected layer (*drop prob=0.5*) but the last one.
 
 ### Training Details
 
