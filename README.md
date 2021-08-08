@@ -8,7 +8,7 @@ he goal of the project was to train a Deep Network to replicate the human steeri
 alt="project3" width="240" height="180" border="10" /></a>
 
 ## The dataset
-Data for this task can be gathered with the Udacity simulator itself. Indeed, when the simulator is set to *training mode*, the car is controlled by the human though the keyboard, and frames and steering directions are stored to disk. For those who want to avoid this process, Udacity made also available an "off-the-shelf" training set. For this project, I employed this latter.
+For this project, dataset can be gathered with the Udacity simulator itself. Indeed, when the simulator is set to *training mode*, the car is controlled by the human though the keyboard, and frames and steering directions are stored to disk. For those who want to avoid this process, Udacity made also available an "off-the-shelf" training set. For this project, I employed this latter.
 
 Udacity training set is constituted by 8036 samples. For each sample, two main information are provided:
 - three frames from the frontal, left and right camera respectively
@@ -55,7 +55,7 @@ Convolutional layers are followed by 3 fully-connected layers: finally, a last s
 
 ### Preventing overfitting
 
-Despite the strong data augmentation mentioned above, there's still room for the major nightmare of the data scientis, a.k.a. overfitting. In order to prevent the network from falling in love with the training track, dropout layers are aggressively added after each convolutional layer (*drop prob=0.2*) and after each fully-connected layer (*drop prob=0.5*) but the last one.
+Despite the strong data augmentation mentioned above, there's still room for overfitting, to prevent the network from this issue, dropout layers are added after each convolutional layer (*drop prob=0.2*) and after each fully-connected layer (*drop prob=0.5*) but the last one.
 
 ### Training Details
 
