@@ -40,7 +40,7 @@ Given a certain frame, we have its associated steering direction. However, being
 
 ##### Shifting the bias
 
-Finally, we introduced a parameter called `bias` belonging to range [0, 1] in the `data generator` to be able to mitigate the bias towards zero of the ground truth. Every time an example is loaded from the training set, a *soft* random theshold `r =  np.random.rand()` is computed. Then the example `i` is discarded from the batch if `steering(i) + bias < r`. In this way, we can tweak the ground truth distribution of the data batches loaded. 
+Finally, we introduced a parameters called `bias` belonging to range [0, 1] in the `data generator` to be able to mitigate the bias towards zero of the ground truth. Every time an example is loaded from the training set, a *soft* random theshold `r =  np.random.rand()` is computed. Then the example `i` is discarded from the batch if `steering(i) + bias < r`. In this way, we can tweak the ground truth distribution of the data batches loaded. 
 
 ## Network architecture
 
