@@ -12,7 +12,7 @@ For this project, dataset can be gathered with the Udacity simulator itself. Ind
 
 Udacity training set is constituted by 8036 samples. For each sample, two main information are provided:
 - three frames from the frontal, left and right camera respectively
-- the corresponding steering direction
+- the corresponding steering direction.
 
 ### Visualizing training data
 
