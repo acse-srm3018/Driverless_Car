@@ -51,7 +51,7 @@ Input normalization is implemented through a `Lambda` layer, which constitutes t
 
 The choice of ELU activation function (instead of more traditional ReLU) come from [this](https://github.com/commaai/research/blob/master/train_steering_model.py) model of CommaAI, which is born for the same task of steering regression. On the contrary, the NVIDIA paper does not explicitly state which activation function they use.
 
-Convolutional layers are followed by 3 fully-connected layers. finally, a last single neuron tries to regress the correct steering value from the features it receives from the previous layers.
+Convolutional layers are followed by 3 fully-connected layers. Finally, a last single neuron tries to regress the correct steering value from the features it receives from the previous layers.
 
 ### Preventing overfitting
 
